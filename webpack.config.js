@@ -11,7 +11,9 @@ console.log(mode + 'mode')
 module.exports = {
   mode: 'development',
   plugins: [
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash].css'
+    }),
     new HtmlWebpackPlugin({
       template: './src/index.html'
     })
