@@ -12,6 +12,7 @@ console.log(mode + 'mode')
 module.exports = {
   mode: mode,
   output: { //точки выхода
+    filename: '[name].[contenthash].js',
     assetModuleFilename: 'assets/[hash][ext][query]', //добавление папки для изображения
     clean: true //очищение папки dist перед компиляцией
   },
@@ -65,6 +66,16 @@ module.exports = {
         loader: 'pug-loader',
         exclude: /(node_modules|bower_components)/,
       },
+      {
+        test: /\.m?js$/, //обработка babel (js)
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          // options: {
+          //     presets: ['@babel/preset-env']
+          // }
+        }
+      }
     ]
   }
 }
