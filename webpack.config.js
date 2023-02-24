@@ -16,7 +16,7 @@ module.exports = {
     assetModuleFilename: 'assets/[hash][ext][query]', //добавление папки для изображения
     clean: true //очищение папки dist перед компиляцией
   },
-  devtool: 'source-map',
+  devtool: 'source-map', //отображаются в каких файлах стили
   plugins: [
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css' //добавление хеширование стилей css
