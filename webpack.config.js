@@ -12,7 +12,8 @@ console.log(mode + 'mode')
 module.exports = {
   mode: mode,
   output: { //точки выхода
-    assetModuleFilename: 'assets/[hash][ext][query]' //добавление папки для изображения
+    assetModuleFilename: 'assets/[hash][ext][query]', //добавление папки для изображения
+    clean: true //очищение папки dist перед компиляцией
   },
   plugins: [
     new MiniCssExtractPlugin({
