@@ -5,6 +5,8 @@
   "author": "Alexandr Panteleev <88164077+Gabageba@users.noreply.github.com>",
   "license": "MIT",
   "dependencies": {
+    "@popperjs/core": "^2.11.6",
+    "bootstrap": "^5.2.3",
     "jquery": "^3.6.3"
   },
   "scripts": {

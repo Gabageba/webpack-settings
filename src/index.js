@@ -1,5 +1,6 @@
 import './css/index.scss'
 import $ from 'jquery'
+import 'bootstrap'
 
 const userStack = {
   language: 'JavaScript',
