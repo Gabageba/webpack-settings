@@ -11,6 +11,10 @@ console.log(mode + 'mode')
 
 module.exports = {
   mode: mode,
+  entry: {
+    scripts: './src/index.js',
+    user: './src/user.js',
+  },
   output: { //точки выхода
     filename: '[name].[contenthash].js',
     assetModuleFilename: 'assets/[hash][ext][query]', //добавление папки для изображения
