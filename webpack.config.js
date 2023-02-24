@@ -21,6 +21,11 @@ module.exports = {
     clean: true //очищение папки dist перед компиляцией
   },
   devtool: 'source-map', //отображаются в каких файлах стили
+  optimization: {
+    splitChunks: { //дробление файлов на более мелкие
+      chunks: 'all'
+    }
+  },
   plugins: [
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css' //добавление хеширование стилей css
