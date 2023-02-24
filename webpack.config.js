@@ -55,7 +55,11 @@ module.exports = {
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i, //обработка изображений
         type: 'asset/resource',
-      }
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i, //обработка шрифтов
+        type: 'asset/resource',
+      },
     ]
   }
 }
