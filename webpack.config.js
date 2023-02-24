@@ -20,7 +20,7 @@ module.exports = {
       filename: '[name].[contenthash].css' //добавление хеширование стилей css
     }),
     new HtmlWebpackPlugin({
-      template: './src/index.html' //основной html файл
+      template: './src/index.pug' //основной html файл
     })
   ],
   module: {
@@ -59,6 +59,11 @@ module.exports = {
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i, //обработка шрифтов
         type: 'asset/resource',
+      },
+      {
+        test: /\.pug$/, //обработка pug
+        loader: 'pug-loader',
+        exclude: /(node_modules|bower_components)/,
       },
     ]
   }
