@@ -15,43 +15,49 @@ module.exports = {
     scripts: './src/index.js',
     user: './src/user.js',
   },
-  output: { //точки выхода
+  output: {
+    //точки выхода
     filename: '[name].[contenthash].js',
     assetModuleFilename: 'assets/[hash][ext][query]', //добавление папки для изображения
-    clean: true //очищение папки dist перед компиляцией
+    clean: true, //очищение папки dist перед компиляцией
   },
   devtool: 'source-map', //отображаются в каких файлах стили
   optimization: {
-    splitChunks: { //дробление файлов на более мелкие
-      chunks: 'all'
-    }
+    splitChunks: {
+      //дробление файлов на более мелкие
+      chunks: 'all',
+    },
+  },
+  devServer: {
+    port: 3000, // настройка сервера запуска
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css' //добавление хеширование стилей css
+      filename: '[name].[contenthash].css', //добавление хеширование стилей css
     }),
     new HtmlWebpackPlugin({
-      template: './src/index.pug' //основной html файл
-    })
+      template: './src/index.pug', //основной html файл
+    }),
   ],
   module: {
     rules: [
-      { //обработка изображений в html коде
+      {
+        //обработка изображений в html коде
         test: /\.html$/i,
-        loader: "html-loader",
+        loader: 'html-loader',
       },
       {
         test: /\.(sa|sc|c)ss$/, //обработка css стилей
         use: [
-          (mode === 'development') ? 'style-loader' : MiniCssExtractPlugin.loader,
+          mode === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
           {
-            loader: "postcss-loader",
+            loader: 'postcss-loader',
             options: {
               postcssOptions: {
                 plugins: [
                   [
-                    "postcss-preset-env",
+                    'postcss-preset-env',
                     {
                       // Options
                     },
@@ -61,7 +67,7 @@ module.exports = {
             },
           },
           'sass-loader',
-        ]
+        ],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i, //обработка изображений
@@ -84,8 +90,8 @@ module.exports = {
           // options: {
           //     presets: ['@babel/preset-env']
           // }
-        }
-      }
-    ]
-  }
+        },
+      },
+    ],
+  },
 }
